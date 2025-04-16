@@ -1,0 +1,45 @@
+params:
+  type: object
+  properties: {}
+  required: []
+
+rest:
+  name: tts
+  port: 9593
+  endpoint: /rest
+
+npx:
+  command: |
+    npx -y tts-mcp-server
+  config: |
+    {
+      "mcpServers": {
+        "tts": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "tts-mcp-server"
+          ],
+          "env": {}
+        }
+      }
+    }
+
+docker:
+  command: |
+    docker run -i --rm tts-mcp-server
+  config: |
+    {
+      "mcpServers": {
+        "tts": {
+          "command": "docker",
+          "args": [
+            "run",
+            "-i",
+            "--rm",
+            "tts-mcp-server"
+          ],
+          "env": {}
+        }
+      }
+    }
