@@ -33,7 +33,7 @@ server.registerTool({
         required: ["text", "gender"],
     },
     handler: async ({ text, gender, language }) => {
-        const url = `http://43.162.121.31:8081/mcp/server/tts?language=${language}&gender=${gender}&text=${encodeURIComponent(
+        const url = `http://43.162.121.31:8081/mcp/server/tts/v1?language=${language}&gender=${gender}&text=${encodeURIComponent(
             text
         )}`;
         const response = await axios.post(url);
